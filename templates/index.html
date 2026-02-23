@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>JARVIS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+  <h1>JARVIS</h1>
+
+  <!-- ElevenLabs key — saved in browser, never leaves your machine -->
+  <div id="key-row">
+    <input id="el-key" type="password"
+      placeholder="Paste your ElevenLabs API key — free at elevenlabs.io/app/settings"/>
+    <button id="save-key">SAVE ›</button>
+  </div>
+  <div id="voice-status">VOICE: BROWSER DEFAULT</div>
+
+  <div id="orb">🎙</div>
+  <div id="status">CLICK ORB TO ACTIVATE</div>
+
+  <canvas id="wave" title="Click to cycle mic boost level"></canvas>
+  <div id="vol-bar"><div id="vol-fill"></div></div>
+
+  <div id="bar">
+    <input id="search" type="text" placeholder="Type a command or question..."/>
+    <button id="send">SEND ›</button>
+  </div>
+
+  <div id="resp"></div>
+  <div id="hint">SAY "BATTLE MODE ON" · "WHERE AM I" · "TIME" · OR ASK ANYTHING</div>
+
+  <button id="loc-btn">📍 SHOW MY LOCATION</button>
+
+  <!-- Map Panel -->
+  <div id="map-panel">
+    <div id="map-header">
+      <span>◈ LOCATION TRACKING</span>
+      <span id="map-close">✕</span>
+    </div>
+    <div id="leafmap"></div>
+    <div id="map-coords">ACQUIRING SIGNAL...</div>
+  </div>
+
+  <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
