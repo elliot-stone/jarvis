@@ -22,7 +22,7 @@ export async function startAudio() {
     const source = state.audioCtx.createMediaStreamSource(stream);
 
     state.gainNode = state.audioCtx.createGain();
-    state.gainNode.gain.value = 8.0;
+    state.gainNode.gain.value = 2.0;
 
     state.analyser = state.audioCtx.createAnalyser();
     state.analyser.fftSize = 256;
@@ -70,7 +70,7 @@ function drawWave() {
 
 // Mic boost cycling (click waveform to adjust)
 const GAINS = [2, 4, 6, 8, 12, 16];
-let gainIdx = 3;
+let gainIdx = 0;
 
 export function initMicBoost() {
   dom.waveCV.addEventListener('click', () => {
